@@ -1,5 +1,16 @@
 def maximum_buy_product(money, product_price):
-    return 0
+    product_price.sort()
+    
+    count = 0
+    bought_indices = set()
+    
+    for i in range(len(product_price)):
+        if i not in bought_indices and money >= product_price[i]:
+            money -= product_price[i]
+            count += 1
+            bought_indices.add(i)
+    
+    return count
 
 if __name__ == "__main__":
     print(maximum_buy_product(50000, [25000, 25000, 10000, 14000]))      # 3
