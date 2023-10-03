@@ -2,13 +2,13 @@ def maximum_buy_product(money, product_price):
     product_price.sort()
     
     count = 0
-    bought_indices = set()
+    indeks_beli = set()
     
     for i in range(len(product_price)):
-        if i not in bought_indices and money >= product_price[i]:
+        if i not in indeks_beli and money >= product_price[i]:
             money -= product_price[i]
             count += 1
-            bought_indices.add(i)
+            indeks_beli.add(i)
     
     return count
 
